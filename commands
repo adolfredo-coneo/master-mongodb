@@ -1,0 +1,26 @@
+//install
+brew tap mongodb/brew
+brew update
+brew install mongodb-community@5.0
+
+brew services start mongodb-community@5.0
+brew services stop mongodb-community@5.0
+brew services list
+
+mongo or mongosh
+
+//mongodb shell
+mongosh
+
+//connect from shell
+use shop
+db.products.insetOne({name: "A Book", price: 12.99})
+db.products.find().pretty()
+
+//git
+git init
+git add README.md
+git commit -m "first commit"
+git branch -M main
+git remote add origin https://github.com/adolfredo-coneo/master-mongodb.git
+git push -u origin main
