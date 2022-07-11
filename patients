@@ -1,0 +1,70 @@
+db.patients.insertMany([
+    {
+        "firstName": "Max",
+        "lastName": "Schwarzmueller",
+        "age": 29,
+        "address": "123 Main St",
+        "city": "New York",
+        "history": [
+            {
+                "disease": "cold",
+                "date": "01/01/2020",
+                "treatment": "cold medicine"
+            },
+            {
+                "disease": "fever",
+                "date": "06/05/2022",
+                "treatment": "fever medicine"
+            }
+            
+        ]
+    },
+    {
+        "firstName": "John",
+        "lastName": "Doe",
+        "age": 42,
+        "address": "123 Main St",
+        "city": "New York",
+        "history": [
+            {
+                "disease": "covid",
+                "date": "03/04/2021",
+                "treatment": "sinovac"
+            },
+            {
+                "disease": "fever",
+                "date": "07/02/2022",
+                "treatment": "fever medicine"
+            }
+            
+        ]
+    },
+    {
+        "firstName": "Jane",
+        "lastName": "Doe",
+        "age": 35,
+        "address": "123 Main St",
+        "city": "New York",
+        "history": [
+            {
+                "disease": "heart attack",
+                "date": "01/01/2019",
+                "treatment": "cirgury"
+            },
+            {
+                "disease": "fever",
+                "date": "01/01/2020",
+                "treatment": "fever medicine"
+            }
+            
+        ]
+    }
+])
+
+db.patients.find()
+
+db.patients.updateOne({firstName: "Jane"}, {$set: {age: 36, firstName: "Janenanine", history: [{disease: "heart attack", date: "01/01/2019", treatment: "cirgury"}]}})
+
+db.patients.find({age: {$gt: 30}})
+
+db.patients.deleteMany({"history.disease": "cold"})
